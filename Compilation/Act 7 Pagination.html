@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagination Website</title>
+
+  <link rel="icon" type="image/png" href="oryn.png">
+
+  <style>
+
+    :root {
+      /* Editable font family for h1 */
+      --h1-font: 'Bigerside Expanded', serif;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html, body{
+      width:100%;
+      height:100%;
+      overflow-x:hidden;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color:white;
+      background:black;
+    }
+
+    .page{
+      width:100%;
+      min-height:100vh;
+      display:none;
+      position:relative;
+    }
+
+   
+    /* PAGE 1 - HERO */
+    
+
+    #page1{
+      background:url('hero bg.jpg') no-repeat center center/cover;
+    }
+
+    #page1::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.4);
+    }
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:20px 40px;
+      display:flex;
+      justify-content:flex-end;
+      gap:40px;
+      z-index:100;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(5px);
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#00e1ff;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      padding:60px 80px;
+    }
+
+    .hero-left h1{
+      font-size: 13.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-left: -10px;
+      font-family: var(--h1-font);
+    }
+
+    .hero-right{
+      max-width:500px;
+    }
+
+    .hero-right p{
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      margin-left: 75px;
+    }
+
+    .hero-right button{
+      padding: 15px 35px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #0a1a3f;
+      background: #ccf9ff;
+      border: none;
+      border-radius: 30px;
+      margin-bottom: 70px;
+      margin-left: 75px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero-right button:hover{
+      background:#00e1ff;
+    }
+
+
+
+    /* PAGE 2 - AUDIO */
+
+
+    #page2{
+      background:url('bg.jpg') no-repeat center center/cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    #page2::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+    }
+
+    .player{
+      position:relative;
+      z-index:2;
+      background:rgba(0,0,0,0.8);
+      padding:40px;
+      border-radius:40px;
+      width:350px;
+      text-align:center;
+      box-shadow:0 5px 25px rgba(0,0,0,0.5);
+    }
+
+    .player h1{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .player p{
+      color:#c0c0c0;
+      margin-bottom:20px;
+    }
+
+    audio{
+      width:100%;
+    }
+audio::-webkit-media-controls-panel {
+      background-color: #b3de7b; /* Spotify green */
+      border-radius: 8px;
+    }
+
+    /* ========================= */
+    /* PAGE 3 - BUTTONS */
+    /* ========================= */
+
+    #page3{
+      background:url('css bg.jpg') no-repeat center center/cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    #page3::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.65);
+    }
+
+    .wrapper{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:40px;
+    }
+
+    .wrapper h1{
+      font-size:3rem;
+      margin-bottom:50px;
+    }
+
+    .container{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+      max-width:900px;
+    }
+
+    .container button{
+      padding:14px 28px;
+      border:none;
+      border-radius:30px;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow:0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .uber{background:black;color:white;}
+    .amazon{background:rgb(255,216,20);color:black;}
+    .github{background:rgb(46,164,79);color:white;}
+    .bootstrap-start{background:rgb(121,82,179);color:white;}
+    .bootstrap-download{background:rgb(108,117,125);color:white;}
+    .linkedin-apply{background:rgb(10,102,194);color:white;}
+    .linkedin-save{
+      background:white;
+      color:rgb(10,102,194);
+      border:2px solid rgb(10,102,194);
+    }
+
+
+    /* ========================= */
+    /* PAGE 4 - HOVER */
+    /* ========================= */
+
+    #page4{
+      background:url('css bg.jpg') no-repeat center center/cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    #page4::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.65);
+    }
+
+    .hover-wrapper{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:40px;
+    }
+
+    .hover-wrapper h1{
+      font-size:3rem;
+      margin-bottom:50px;
+    }
+
+    .hover-container{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+      max-width:900px;
+    }
+
+    .hover-container button{
+      padding:14px 28px;
+      border:none;
+      border-radius:30px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .hover-uber{background:black;color:white;}
+    .hover-uber:hover{background:#333;transform:translateY(-3px);}
+
+    .hover-amazon{background:rgb(255,216,20);color:black;}
+    .hover-amazon:hover{background:#f7ca00;transform:scale(1.05);}
+
+    .hover-github{background:rgb(46,164,79);color:white;}
+    .hover-github:hover{background:#2c974b;transform:scale(1.05);}
+
+    .hover-bootstrap-start{background:rgb(121,82,179);color:white;}
+    .hover-bootstrap-start:hover{background:#6f42c1;transform:translateY(-3px);}
+
+    .hover-bootstrap-download{background:rgb(108,117,125);color:white;}
+    .hover-bootstrap-download:hover{background:#5a6268;transform:translateY(-3px);}
+
+    .hover-linkedin-apply{background:rgb(10,102,194);color:white;}
+    .hover-linkedin-apply:hover{background:#004182;transform:scale(1.05);}
+
+    .hover-linkedin-save{
+      background:white;
+      color:rgb(10,102,194);
+      border:2px solid rgb(10,102,194);
+    }
+
+    .hover-linkedin-save:hover{
+      background:rgb(10,102,194);
+      color:white;
+      transform:scale(1.05);
+    }
+
+
+    /* ========================= */
+    /* PAGINATION */
+    /* ========================= */
+
+    .pagination-bar{
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      z-index:9999;
+
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+
+      padding:12px 18px;
+      border-radius:50px;
+
+      border:1px solid rgba(255,255,255,0.15);
+    }
+
+    .page-btn{
+      width:45px;
+      height:45px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .page-btn:hover{
+      background:#00e1ff;
+      color:black;
+      transform:translateY(-3px);
+    }
+
+    .page-btn.active{
+      background:#ccf9ff;
+      color:black;
+    }
+
+    .prev-next{
+      width:auto;
+      padding:0 20px;
+      border-radius:30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="#">About us</a>
+    <a href="#">Community</a>
+    <a href="#">Courses</a>
+    <a href="#">Questions</a>
+  </nav>
+
+
+  <!-- PAGE 1 -->
+
+  <section class="page" id="page1">
+    <div class="hero-content">
+      <div class="hero-left">
+        <h1>ORYN</h1>
+      </div>
+
+      <div class="hero-right">
+        <p>
+          Welcome to ORYN — where technology and design meet. Inspired by innovation and minimalism, ORYN creates smart, clean, and future-ready solutions built with precision and modern creativity.
+        </p>
+
+        <button>Get Started ➤</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PAGE 2 -->
+
+  <section class="page" id="page2">
+    <div class="player">
+      <h1>Riptide</h1>
+      <p>Vance Joy</p>
+
+      <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </section>
+
+
+  <!-- PAGE 3 -->
+
+  <section class="page" id="page3">
+    <div class="wrapper">
+      <h1>CSS Basics</h1>
+
+      <div class="container">
+        <button class="uber">Request now</button>
+        <button class="amazon">Add to Cart</button>
+        <button class="github">Sign up</button>
+        <button class="bootstrap-start">Get started</button>
+        <button class="bootstrap-download">Download</button>
+        <button class="linkedin-apply">Apply on company website</button>
+        <button class="linkedin-save">Save</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PAGE 4 -->
+
+  <section class="page" id="page4">
+    <div class="hover-wrapper">
+      <h1>Hover, Shadow & Transition</h1>
+
+      <div class="hover-container">
+        <button class="hover-uber">Request now</button>
+        <button class="hover-amazon">Add to Cart</button>
+        <button class="hover-github">Sign up</button>
+        <button class="hover-bootstrap-start">Get started</button>
+        <button class="hover-bootstrap-download">Download</button>
+        <button class="hover-linkedin-apply">Apply on company website</button>
+        <button class="hover-linkedin-save">Save</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PAGINATION -->
+
+  <div class="pagination-bar">
+
+    <button class="page-btn prev-next" onclick="changePage(-1)">
+      ← Prev
+    </button>
+
+    <button class="page-btn" id="p1" onclick="goTo(1)">1</button>
+    <button class="page-btn" id="p2" onclick="goTo(2)">2</button>
+    <button class="page-btn" id="p3" onclick="goTo(3)">3</button>
+    <button class="page-btn" id="p4" onclick="goTo(4)">4</button>
+
+    <button class="page-btn prev-next" onclick="changePage(1)">
+      Next →
+    </button>
+
+  </div>
+
+
+  <script>
+
+    let currentPage = 1;
+
+    function goTo(page){
+
+      document.querySelectorAll('.page').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      document.querySelectorAll('.page-btn').forEach(button => {
+        button.classList.remove('active');
+      });
+
+      document.getElementById('page' + page).style.display = 'flex';
+      document.getElementById('p' + page).classList.add('active');
+
+      currentPage = page;
+    }
+
+
+    function changePage(direction){
+
+      let nextPage = currentPage + direction;
+
+      if(nextPage < 1){
+        nextPage = 1;
+      }
+
+      if(nextPage > 4){
+        nextPage = 4;
+      }
+
+      goTo(nextPage);
+    }
+
+
+    goTo(1);
+
+  </script>
+
+</body>
+</html>

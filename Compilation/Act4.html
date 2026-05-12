@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WaveTunes</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="vnc.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      backdrop-filter: blur(3px);
+    }
+    .player {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 55px;
+      padding: 40px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+    .player h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+    .player p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+    audio {
+      width: 95%;
+      outline: none;
+    }
+    audio::-webkit-media-controls-panel {
+      background-color: #b3de7b; /* Spotify green */
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="player">
+    <h1>Riptide</h1>
+    <p>Vance Joy</p>
+    <!-- Audio player -->
+    <audio controls>
+      <source src="audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</body>
+</html>

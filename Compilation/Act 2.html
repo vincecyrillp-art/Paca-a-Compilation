@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons 2</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="vnc.png">
+  <style>
+    :root {
+      --h1-font: 'Century Gothic', serif;
+      --accent-color: #e7fcff;
+      --button-bg: #ccf9ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      background: url('css bg.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-family: var(--h1-font);
+      font-size: 3rem;
+      margin-bottom: 60px;
+      color: var(--accent-color);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px;
+    }
+
+    button {
+      padding: 14px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Uber */
+    .uber {
+      background-color: black;
+      color: white;
+    }
+
+    /* Amazon */
+    .amazon {
+      background-color: rgb(255, 216, 20);
+      color: black;
+    }
+
+    /* GitHub */
+    .github {
+      background-color: rgb(46, 164, 79);
+      color: white;
+    }
+
+    /* Bootstrap - Get started */
+    .bootstrap-start {
+      background-color: rgb(121, 82, 179);
+      color: white;
+    }
+
+    /* Bootstrap - Download */
+    .bootstrap-download {
+      background-color: rgb(108, 117, 125);
+      color: #f8f9fa;
+    }
+
+    /* LinkedIn - Apply */
+    .linkedin-apply {
+      background-color: rgb(10, 102, 194);
+      color: white;
+    }
+
+    /* LinkedIn - Save */
+    .linkedin-save {
+      background-color: white;
+      color: rgb(10, 102, 194);
+      border: 2px solid rgb(10, 102, 194);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>CSS Basics</h1>
+    <div class="container">
+      <button class="uber">Request now</button>
+      <button class="amazon">Add to Cart</button>
+      <button class="github">Sign up</button>
+      <button class="bootstrap-start">Get started</button>
+      <button class="bootstrap-download">Download</button>
+      <button class="linkedin-apply">Apply on company website</button>
+      <button class="linkedin-save">Save</button>
+    </div>
+  </div>
+</body>
+</html>
